@@ -40,8 +40,10 @@ contractMultip
 contractMultip.multiply(62, {from:eth.coinbase})
 
 # 通过 eth_call 调用智能合约
+
+# 1. 先把函数名（逗号间隔的参数类型）进行哈希取前4个字节
 web3.sha3('multiply(uint256)').substr(2,8)
 // => c6888fa1
-
+# 2. 然后拼接 '0x' + 函数哈希码 + 参数值，参见 https://docs.soliditylang.org/en/develop/abi-spec.html ABI规范
 curl http://localhost:6739 -X POST --data '{"id":67, "method": "eth_call", "params":[{"to":"0x2b2de91719b2f3d195e73eee2dc99b6c809bd472", "data":"0xc6888fa10000000000000000000000000000000000000000000000000000000000000002"},"latest"]}' -H "Content-Type: application/json"
 

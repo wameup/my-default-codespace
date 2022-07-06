@@ -2,10 +2,9 @@
 
 wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.20-8f2416a8.tar.gz
 tar xzf geth-linux-amd64-1.10.20-8f2416a8.tar.gz
-ln -s `pwd`/geth-linux-amd64-1.10.20-8f2416a8/geth /usr/local/bin/
+ln -s `pwd`/bin/geth-linux-amd64-1.10.20-8f2416a8/geth /usr/local/bin/
 
 echo "=== 生成新账户"
-
 # 生成 [datadir]/keystore/ 下的钱包文件
 geth account new --datadir ./pex-data/
 geth account list --datadir ./pex-data/

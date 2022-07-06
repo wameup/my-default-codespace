@@ -1,6 +1,7 @@
 - download binaries <https://geth.ethereum.org/downloads/>
   - Windows <https://gethstore.blob.core.windows.net/builds/geth-windows-amd64-1.10.20-8f2416a8.exe>
-  - Linux <https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.20-8f2416a8.tar.gz>
+  - Linux amd64 <https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.20-8f2416a8.tar.gz>
+  - Linux arm64 <https://gethstore.blob.core.windows.net/builds/geth-linux-arm64-1.10.20-8f2416a8.tar.gz>
   - MacOS <https://gethstore.blob.core.windows.net/builds/geth-darwin-amd64-1.10.20-8f2416a8.tar.gz>
   - Sources <https://github.com/ethereum/go-ethereum/archive/v1.10.20.tar.gz>
 - clone source repository

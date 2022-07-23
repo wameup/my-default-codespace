@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 假设目前在 my-default-codespace/eth 目录下
-wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.20-8f2416a8.tar.gz
-tar xzf geth-linux-amd64-1.10.20-8f2416a8.tar.gz
-ln -s `pwd`/geth-linux-amd64-1.10.20-8f2416a8/geth /usr/local/bin/
+wget -P ./bin https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.20-8f2416a8.tar.gz
+tar xzf ./bin/geth-linux-amd64-1.10.20-8f2416a8.tar.gz -C ./bin
+ln -s `pwd`/bin/geth-linux-amd64-1.10.20-8f2416a8/geth /usr/local/bin/
 
 echo "=== 生成新账户"
 # 生成 [datadir]/keystore/ 下的钱包文件

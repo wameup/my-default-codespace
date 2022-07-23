@@ -1,3 +1,4 @@
 node_modules/
 eth/pex-data/geth/
 eth/pex-data-clique/geth/
+eth/bin/

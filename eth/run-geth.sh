@@ -7,12 +7,12 @@ ln -s `pwd`/bin/geth-linux-amd64-1.10.20-8f2416a8/geth /usr/local/bin/
 
 echo "=== 生成新账户"
 # 生成 [datadir]/keystore/ 下的钱包文件
-geth account new --datadir ./pex-data/ 
+geth --datadir ./pex-data/ account new
 # 0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad
-geth account list --datadir ./pex-data/
+geth --datadir ./pex-data/ account list
 # 私有链挖矿比较容易，所以实际上不需要预置有币的账号，需要的时候自己创建即可以
 
-# 添加
+# 初始化链上数据
 geth --datadir ./pex-data/ init genesis-ethash.json
 geth --datadir ./pex-data-clique/ init genesis-clique.json
 

@@ -2,6 +2,8 @@
 pragma solidity ^0.8.0;
 
 import "https://github.com/nibbstack/erc721/src/contracts/tokens/nf-token-metadata.sol";
+// todo 无法访问！是否应当换成 https://github.com/nibbstack/erc721/blob/master/src/contracts/tokens/nf-token-metadata.sol 
+// 但不知为何，这个代码能在 remix 上编译成功
 import "https://github.com/nibbstack/erc721/src/contracts/ownership/ownable.sol";
 
 /**

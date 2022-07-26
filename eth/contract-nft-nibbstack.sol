@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "https://github.com/nibbstack/erc721/src/contracts/tokens/nf-token-metadata.sol";
-// todo 无法访问！是否应当换成 https://github.com/nibbstack/erc721/blob/master/src/contracts/tokens/nf-token-metadata.sol 
-// 但不知为何，这个代码能在 remix 上编译成功
-import "https://github.com/nibbstack/erc721/src/contracts/ownership/ownable.sol";
+/* 这个地址是错的 无法访问。但这是 https://github.com/nibbstack/erc721 上的官方例子，不知为何。用这个错误的地址，也能在 remix 里编译成功。
+//import "https://github.com/nibbstack/erc721/src/contracts/tokens/nf-token-metadata.sol";
+//import "https://github.com/nibbstack/erc721/src/contracts/ownership/ownable.sol";
+*/
+import "https://github.com/nibbstack/erc721/blob/master/src/contracts/tokens/nf-token-metadata.sol";
+import "https://github.com/nibbstack/erc721/blob/master/src/contracts/ownership/ownable.sol";
 
 /**
  * @dev This is an example contract implementation of NFToken with metadata extension.

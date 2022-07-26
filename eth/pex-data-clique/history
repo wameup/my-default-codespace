@@ -1,0 +1,46 @@
+
+eth.blockNumber
+eth.coinbase
+web3.eth.getBalance(eth.coinbase)
+txpool.status
+miner.start(1)
+txpool.status
+txpool.inspect.pending
+miner.stop()
+eth.coinbase
+eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(13, "ether")})
+txpool.status
+miner.start(1)
+eth.blockNumber
+txpool.status
+eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(1000, "ether")})
+txpool.status
+eth.blockNumber
+txpool.status
+eth.blockNumber
+txpool.status
+miner.start(1)
+txpool.status
+eth.blockNumber
+eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(1, "ether")})
+eth.blockNumber
+txpool.status
+eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(1, "ether")})
+miner.start(1)
+eth.blockNumber
+txpool.status
+eth.blockNumber
+miner.start(1)
+eth.blockNumber
+txpool.status
+eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(1, "ether")})
+txpool.status
+eth.blockNumber
+miner.stop
+miner.stop()
+miner.start(1)
+miner.stop()
+eth.blockNumber
+miner.start(1)
+eth.blockNumber
+miner.stop()

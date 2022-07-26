@@ -82,7 +82,8 @@ https://geth.ethereum.org/docs
 
 # 私有链
 
-https://geth.ethereum.org/docs/interface/private-network
+<https://geth.ethereum.org/docs/interface/private-network>
+
 只有当 networkid、chainID、创世区块都相同时，才是同一条链。chainID 不是 networkid，但 metatask 等工具可能错误的混用了，因此为了兼容，可以把 chainId 和 networkid 设成一样。<https://www.jianshu.com/p/b8730a05eb36> <https://learnblockchain.cn/article/578>
 
 已被使用的 chainId 列表: <https://chainlist.org/zh>
@@ -106,7 +107,7 @@ https://geth.ethereum.org/docs/interface/private-network
 
 # 开发
 
-- hardhat + ethers.js <https://hardhat.org/> <https://zhuanlan.zhihu.com/p/353251375> <https://learnblockchain.cn/docs/hardhat/getting-started/>
+- hardhat + ethers.js <https://hardhat.org/> <https://learnblockchain.cn/docs/hardhat/getting-started/> <https://zhuanlan.zhihu.com/p/353251375>
 - truffle + web3.js
 - embark <https://framework.embarklabs.io/>
 

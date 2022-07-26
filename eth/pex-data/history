@@ -1,2 +1,18 @@
 
 miner.start(1)
+eth.blockNumber
+eth.coinbase
+miner.start(1)
+eth.coinbase
+eth.blockNumber
+eth.coinbase
+eth.blockNumber
+eth.coinbase
+eth.blockNumber
+eth.coinbase
+eth.blockNumber
+miner.stop()
+eth.blockNumber
+miner.start(1)
+eth.blockNumber
+miner.stop()

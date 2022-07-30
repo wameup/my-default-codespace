@@ -1,5 +1,5 @@
 {
-  "name": "hht",
+  "name": "truffle",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
-    "hardhat": "^2.10.1"
+  "dependencies": {
+    "ganache": "^7.4.0",
+    "truffle": "^5.5.23"
   }
 }

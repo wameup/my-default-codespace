@@ -19,6 +19,19 @@ const GOERLI_PRIVATE_KEY = 'YOUR GOERLI PRIVATE KEY'
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: '0.8.9',
+  /* 或者定义多个 solc 版本，比如：
+  solidity: {
+    compilers: [
+      {
+        version: "0.5.5",
+      },
+      {
+        version: "0.6.7",
+        settings: {},
+      },
+    ],
+  },
+  */
   networks: {
     // ropsten: {
     //   url: `https://eth-ropsten.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
@@ -35,4 +48,8 @@ module.exports = {
       ]
     }
   }
+  // defaultNetwork: 'pex',
+  // etherscan: {
+  //   apiKey: 'ETHERSCAN_API',
+  // }
 }

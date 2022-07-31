@@ -30,14 +30,15 @@ contract NFTCollectible is ERC721Enumerable, Ownable {
     }
 
     // 本函数让主人可以在后期修改 _baseTokenURI。
-    function setBaseURI(string memory _baseTokenURI) public onlyOwner {
-        _baseTokenURI = _baseTokenURI;
+    function setBaseURI(string memory baseTokenURI_) public onlyOwner {
+        _baseTokenURI = baseTokenURI_;
     }
 
-    function _mintSingleNFT() private {
+    function _mintSingleNFT() private returns (uint256) {
         uint newTokenID = _tokenIds.current(); // 注意，本合约的实现，是自动按顺序生成了 tokenID，而不是被合约调用者赋予。
         _safeMint(msg.sender, newTokenID); // _safeMint should be defined by openzeppelin, it assigns NFT with ID _newTokenID to msg.sender, and each NFT gets the correct metadata (stored in IPFS) assigned automatically by openzeppelin.
         _tokenIds.increment();
+        return newTokenID;
     }
 
     function reserveNFTs() public onlyOwner {
@@ -46,6 +47,14 @@ contract NFTCollectible is ERC721Enumerable, Ownable {
         for (uint i = 0; i < 10; i++) {
             _mintSingleNFT();
         }
+    }
+
+    function mintNFT() public payable returns (uint256) {
+        uint totalMinted = _tokenIds.current();
+        require(totalMinted.add(1) <= MAX_SUPPLY, "Not enough NFTs!");
+        require(msg.value >= PRICE, "Not enough ether to purchase NFT.");
+        uint newTokenID = _mintSingleNFT();
+        return newTokenID;
     }
 
     function mintNFTs(uint _count) public payable {

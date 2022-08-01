@@ -44,7 +44,7 @@ over http|websocket|unix-socket. 默认 rpc 端口 http:8545, ws:8546.
 ### JSON-RPC 规范
 
 - data types and (hex) encoding
-  - 注意，JSON-RPC 所有参数都要求是 hex 编码的，所以比如 "method":"web3_sha3", "params":["get()"] 是不行的
+  - 注意，JSON-RPC 所有参数都要求是 hex 编码的，所以比如 "method":"web3_sha3", "params":["get()"] 是不行的，要把 'get()' 先换成 hex
   - quantities (integers, numbers, ...):
     - 0x0: 0
     - 0x1: 1

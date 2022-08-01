@@ -57,6 +57,13 @@ contract NFTCollectible is ERC721Enumerable, Ownable {
         return newTokenID;
     }
 
+    function mint(address _to) public payable returns (uint256) {
+        uint newTokenID = _tokenIds.current();
+        _safeMint(_to, newTokenID);
+        _tokenIds.increment();
+        return newTokenID;
+    }
+
     function mintNFTs(uint _count) public payable {
         uint totalMinted = _tokenIds.current();
         require(totalMinted.add(_count) <= MAX_SUPPLY, "Not enough NFTs!");

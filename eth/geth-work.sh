@@ -9,6 +9,7 @@ geth attach http://127.0.0.1:6739 # 或者 ./[datadir]/geth.ipc
 > personal.newAccount()
 > eth.coinbase # 确认已设置挖矿地址，否则 miner.setEtherbase(eth.accounts[0])
 > web3.eth.getBalance(eth.coinbase)
+> web3.toWei(1,"ether")
 > web3.fromWei(web3.eth.getBalance(eth.coinbase), 'ether')
 > web3.eth.estimateGas({ from: eth.coinbase, to: web3.eth.accounts[1], value: web3.toWei(1, 'ether')}) # 一般简单的转账交易通常会消耗21000gas
 > personal.unlockAccount(eth.coinbase, '123', 0) # 用于交易的签名，需要解锁账户。PoW 不需要解锁就能挖矿。PoA 需要解锁账户并在有效期才能挖矿，默认解锁有效期300秒。如果永久解锁被禁用（默认），那么该调用将忽略解锁时长参数，账户 仅为一次签名解锁；当启用永久锁定后，使用解锁时长参数设定保持账户 解锁的秒数，默认值是300秒。传入0则无限期解锁账户。同一时刻只能有一个解锁账户。
@@ -28,9 +29,13 @@ curl http://localhost:6739 -d '{"method":"eth_getBlockByNumber","params":["0x0",
 # 根据上一步获得的 block hash
 curl http://localhost:6739 -d '{"method":"eth_getBlockByHash","params":["0xe704143d3cc1aedeaa20cda2cb2e543300787f5e5ae9e7ac95655ec777ea65b7",true],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 curl http://localhost:6739 -d '{"method":"eth_getBalance","params":["0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
+## value: parseInt(web3.toWei(1,'ether')).toString(16) => 'de0b6b3a7640000'
 curl http://localhost:6739 -d '{"method":"eth_sendTransaction","params":[{"from":"0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","to":"0x921b248a470f7d0bba40077c7aee3ab3440caa77","value":"0xde0b6b3a7640000","gas":"0x5208"}],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
+## value: web3.toWei(0.1, 'ether') => 100000000000000000, parseInt(100000000000000000).toString(16) => '16345785d8a0000'
+## 必须先在 geth console 里 personal.unlockAccount(eth.accoutns[1], '123', 0) 才能运行成功
+curl http://localhost:6739 -d '{"method":"eth_sendTransaction","params":[{"from":"0x921b248a470f7d0bba40077c7aee3ab3440caa77","to":"0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","value":"0x16345785d8a0000","gas":"0x5208"}],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 # 根据上一步获得的 tx hash
-curl http://localhost:6739 -d '{"method":"eth_getTransactionByHash","params":["0x5c8232ae68541b64f7701c5fe6195a142ba1dc1bd3989986871d9ce49394e342"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
+curl http://localhost:6739 -d '{"method":"eth_getTransactionByHash","params":["0xe80e7f1d78ad00d2e9bf6779cebb3105c2b4f119cb6abe63419fda995c9c082e"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 
 # 解析私钥
 # https://blog.csdn.net/northeastsqure/article/details/79476831

@@ -136,3 +136,66 @@
 08:09:55.153019 version@stat F·[2 2] S·2MiB[1KiB 2MiB] Sc·[0.50 0.02]
 08:09:55.220415 db@janitor F·6 G·0
 08:09:55.220465 db@open done T·94.967419ms
+=============== Jul 31, 2022 (UTC) ===============
+11:55:08.712677 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:55:08.712853 version@stat F·[2 2] S·2MiB[1KiB 2MiB] Sc·[0.50 0.02]
+11:55:08.712890 db@open opening
+11:55:08.712957 journal@recovery F·1
+11:55:08.801347 journal@recovery recovering @33
+11:55:08.916222 memdb@flush created L0@35 N·11426 S·605KiB "H\x00\xc1..\xb6v\xd0,v70587":"unc..own,v68108"
+11:55:08.920979 version@stat F·[3 2] S·3MiB[607KiB 2MiB] Sc·[0.75 0.02]
+11:55:08.981458 db@janitor F·7 G·0
+11:55:08.981510 db@open done T·268.608386ms
+=============== Jul 31, 2022 (UTC) ===============
+12:41:44.230223 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:41:44.230511 version@stat F·[3 2] S·3MiB[607KiB 2MiB] Sc·[0.75 0.02]
+12:41:44.230563 db@open opening
+12:41:44.230667 journal@recovery F·1
+12:41:44.233309 journal@recovery recovering @36
+12:41:44.251208 memdb@flush created L0@38 N·11 S·578B "Las..ock,v79535":"unc..own,v79537"
+12:41:44.256894 version@stat F·[4 2] S·3MiB[607KiB 2MiB] Sc·[1.00 0.02]
+12:41:44.320650 db@janitor F·8 G·0
+12:41:44.320705 db@open done T·90.10533ms
+12:41:44.320786 table@compaction L0·4 -> L1·2 S·3MiB Q·79545
+12:41:44.434412 table@build created L1@41 N·36775 S·2MiB "\x01:@..\xf6\x0eg,v2489":"h\x00\x00..\xfa\x9a\xad,v47304"
+12:41:44.501249 table@build created L1@42 N·15469 S·840KiB "h\x00\x00..\x9a\xadt,v47301":"\xfe\xbb\xaa..'Б,v67805"
+12:41:44.501342 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.03]
+12:41:44.530770 table@compaction committed F-4 S-161KiB Ke·0 D·5173 T·209.918268ms
+12:41:44.531206 table@remove removed @35
+12:41:44.531317 table@remove removed @32
+12:41:44.531480 table@remove removed @29
+12:41:44.531873 table@remove removed @27
+12:41:44.531993 table@remove removed @28
+13:01:12.838579 db@close closing
+13:01:12.838745 db@close done T·163.996µs
+=============== Jul 31, 2022 (UTC) ===============
+13:01:34.031520 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:01:34.031711 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.03]
+13:01:34.031749 db@open opening
+13:01:34.031806 journal@recovery F·1
+13:01:34.034268 journal@recovery recovering @39
+13:01:34.057738 memdb@flush created L0@43 N·152 S·5KiB "H\x02H..Oǚ,v79679":"unc..own,v79547"
+13:01:34.060182 version@stat F·[1 2] S·2MiB[5KiB 2MiB] Sc·[0.25 0.03]
+13:01:34.121529 db@janitor F·6 G·1
+13:01:34.121560 db@janitor removing table-38
+13:01:34.121626 db@open done T·89.865186ms
+=============== Aug 1, 2022 (UTC) ===============
+05:13:10.013430 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:13:10.013690 version@stat F·[1 2] S·2MiB[5KiB 2MiB] Sc·[0.25 0.03]
+05:13:10.013741 db@open opening
+05:13:10.013832 journal@recovery F·1
+05:13:10.015879 journal@recovery recovering @44
+05:13:10.055095 memdb@flush created L0@46 N·3947 S·220KiB "H\x00?..\vK\x18,v79712":"unc..own,v79700"
+05:13:10.065958 version@stat F·[2 2] S·3MiB[226KiB 2MiB] Sc·[0.50 0.03]
+05:13:10.138991 db@janitor F·6 G·0
+05:13:10.139076 db@open done T·125.31473ms
+=============== Aug 1, 2022 (UTC) ===============
+06:19:13.824866 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+06:19:13.825476 version@stat F·[2 2] S·3MiB[226KiB 2MiB] Sc·[0.50 0.03]
+06:19:13.825560 db@open opening
+06:19:13.825667 journal@recovery F·1
+06:19:13.829093 journal@recovery recovering @47
+06:19:13.888251 memdb@flush created L0@49 N·4738 S·290KiB "H\x00Q..\x17\x8c\x89,v85520":"unc..own,v83650"
+06:19:13.894907 version@stat F·[3 2] S·3MiB[516KiB 2MiB] Sc·[0.75 0.03]
+06:19:13.956044 db@janitor F·7 G·0
+06:19:13.956135 db@open done T·130.522823ms

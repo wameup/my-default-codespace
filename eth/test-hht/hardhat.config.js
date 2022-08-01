@@ -42,7 +42,7 @@ module.exports = {
     //   accounts: [GOERLI_PRIVATE_KEY]
     // },
     pex: {
-      url: 'http://127.0.0.1:6739',
+      url: 'http://121.5.167.48:6739',
       accounts: [
         '0xd2ed4496be1251a7f55772bba6ef1106ec330e27002898a5e1c69cd4e39de965' // 加不加 0x 貌似都可以
       ]

@@ -23,3 +23,33 @@ contractNFT = ContractNFT.new({data: bytecodeNFT, gas: 10000000, from: eth.coinb
 contractNFT
 //  address: "0x3bb4baa42d7c8d81425d4e295b240b57aa4806e4",
 //  transactionHash: "0x4315836f311e8e554f534a160b932b99bee7a44b9426bc2569825d87bd60bf96",
+
+
+---
+
+# name() `06fdde03`
+curl http://localhost:6739 --data '{"method": "eth_call", "params":[{"to":"0x2b2de91719B2f3d195E73EEe2DC99b6C809bD472", "data":"0x06fdde03"},"latest"],"id":1}' -X POST -H "Content-Type: application/json"
+result="0x
+0000000000000000000000000000000000000000000000000000000000000020
+0000000000000000000000000000000000000000000000000000000000000013
+5065726d616e656e74204578697374656e636500000000000000000000000000"
+返回了96字节
+# 返回字符串 "Permanent Existence" 编码：长度 0x13 + ascii
+135065726d616e656e74204578697374656e6365 
+==
+  P e r m a n e n t   E x i s t e n c e
+
+# balanceOf(address) `70a08231`
+# address 做参数，要在前面填0补足32字节
+# eth_call 需要第二个数组元素指定 block number，默认为 latest
+curl http://localhost:6739 --data '{"method": "eth_call", "params":[{"to":"0x2b2de91719B2f3d195E73EEe2DC99b6C809bD472", "data":"0x70a082310000000000000000000000003831e121b349aebaea8ed0c44d4c7cb7b15ad8ad"},"latest"],"id":1}' -X POST -H "Content-Type: application/json"
+
+
+# mintNFT() 14f710fe
+# eth_transaction 不需要第二个数组元素，加了就死了
+curl http://localhost:6739 --data '{"method": "eth_sendTransaction", "params":[{"from":"0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","to":"0x2b2de91719B2f3d195E73EEe2DC99b6C809bD472", "data":"0x14f710fe","gas":"0xc350"}],"id":1}' -X POST -H "Content-Type: application/json"
+返回交易哈希
+{"jsonrpc":"2.0","id":1,"result":"0xc00276df07e26a06f0a9acfd2cc73de9562333c1e828689d272dbf5ccd14a42c"}
+但是检查区块链上数据，发现mint不成功
+
+curl http://localhost:6739 -d '{"method":"eth_getTransactionByHash","params":["0xc00276df07e26a06f0a9acfd2cc73de9562333c1e828689d272dbf5ccd14a42c"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"

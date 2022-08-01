@@ -64,27 +64,3 @@ curl http://localhost:6739 --data '{"method":"web3_sha3","params":["0x6765742829
 
 # 2. 然后拼接 '0x' + 函数哈希码 + 参数值(如果为空，不要填或者填32字节全0即可），参见 <https://docs.soliditylang.org/en/develop/abi-spec.html> ABI规范
 curl http://localhost:6739 --data '{"method": "eth_call", "params":[{"to":"0x2b2de91719b2f3d195e73eee2dc99b6c809bd472", "data":"0xc6888fa10000000000000000000000000000000000000000000000000000000000000002"},"latest"],"id":1}' -X POST -H "Content-Type: application/json"
-
-# name()
-curl http://localhost:6739 --data '{"method": "eth_call", "params":[{"to":"0x2b2de91719B2f3d195E73EEe2DC99b6C809bD472", "data":"0x06fdde03"},"latest"],"id":1}' -X POST -H "Content-Type: application/json"
-result="0x
-0000000000000000000000000000000000000000000000000000000000000020
-0000000000000000000000000000000000000000000000000000000000000013
-5065726d616e656e74204578697374656e636500000000000000000000000000"
-返回了96字节
-# 返回字符串 "Permanent Existence" 编码：长度 0x13 + ascii
-135065726d616e656e74204578697374656e6365 
-==
-  P e r m a n e n t   E x i s t e n c e
-
-# balanceOf(address) 
-# address 做参数，要在前面填0补足32字节
-# eth_call 需要第二个数组元素指定 block number，默认为 latest
-curl http://localhost:6739 --data '{"method": "eth_call", "params":[{"to":"0x2b2de91719B2f3d195E73EEe2DC99b6C809bD472", "data":"0x70a082310000000000000000000000003831e121b349aebaea8ed0c44d4c7cb7b15ad8ad"},"latest"],"id":1}' -X POST -H "Content-Type: application/json"
-
-
-# mintNFT() 14f710fe
-# eth_transaction 不需要第二个数组元素，加了就死了
-curl http://localhost:6739 --data '{"method": "eth_call", "params":[{"from":"0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","to":"0x2b2de91719B2f3d195E73EEe2DC99b6C809bD472", "data":"0x14f710fe","gas":"0xc35000"}],"id":1}' -X POST -H "Content-Type: application/json"
-
-{"jsonrpc":"2.0","id":1,"result":"0xe80e7f1d78ad00d2e9bf6779cebb3105c2b4f119cb6abe63419fda995c9c082e"}

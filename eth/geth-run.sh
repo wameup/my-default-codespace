@@ -1,6 +1,8 @@
 #!/bin/bash
 
-while [ ! $DATADIR ]
+DATADIR=$1
+
+while [ ! "$DATADIR" ] || [ ! -d "./$DATADIR" ]
 do
   echo "=== Set datadir name, for example pex-poa:"
   read -p ">>> " DATADIR

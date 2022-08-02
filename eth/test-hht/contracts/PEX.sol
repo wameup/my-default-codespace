@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 contract PEX is ERC721Enumerable, Ownable {
     using SafeMath for uint256;
 
-    //    uint public constant PRICE = 0.01 ether; // The amount of ether required to buy 1 NFT.
+    uint public constant PRICE = 0.01 ether; // The amount of ether required to buy 1 NFT.
 
     string public _baseTokenURI; // The IPFS URL of the folder containing the JSON metadata.
 
@@ -55,11 +55,24 @@ contract PEX is ERC721Enumerable, Ownable {
         public
         payable
         onlyOwner
-        returns (uint256)
+    // returns (uint256)
     {
-        //        require(msg.value >= PRICE, "Not enough ether to purchase NFT.");
+        require(msg.value >= PRICE, "Not enough ether to purchase NFT.");
         _safeMint(_to, _tokenId);
-        return _tokenId;
+        //        return _tokenId;
+    }
+
+    function transfer(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) public virtual {
+        require(
+            _isApprovedOrOwner(_msgSender(), tokenId),
+            "ERC721: caller is not token owner or approved"
+        );
+        _safeTransfer(from, to, tokenId, data);
     }
 
     function tokensOfOwner(address _owner)

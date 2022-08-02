@@ -41,6 +41,12 @@ module.exports = {
     //   url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
     //   accounts: [GOERLI_PRIVATE_KEY]
     // },
+    pexdev: {
+      url: 'http://127.0.0.1:6739',
+      accounts: [
+        '0xd2ed4496be1251a7f55772bba6ef1106ec330e27002898a5e1c69cd4e39de965' // 加不加 0x 貌似都可以
+      ]
+    },
     pex: {
       url: 'http://121.5.167.48:6739',
       accounts: [
@@ -48,7 +54,7 @@ module.exports = {
       ]
     }
   }
-  // defaultNetwork: 'pex',
+  // defaultNetwork: 'pex'
   // etherscan: {
   //   apiKey: 'ETHERSCAN_API',
   // }

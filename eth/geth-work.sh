@@ -18,10 +18,11 @@ geth attach http://127.0.0.1:6739 # 或者 ./[datadir]/geth.ipc
 > eth.getTransactionReceipt(txId)
 > txpool.status
 > txpool.inspect.pending
+# 必须先 unlockAccount 后才能启动挖矿，提前启动的 miner.start(1)无效，必须先 miner.stop() 后重新启动。
 > miner.start(1);admin.sleepBlocks(1);miner.stop(); # miner.start(threadCount)
 > loadScript('.../xxx.js') # 可以编程导入变量等
 
-# 使用 Ethereum JSON-RPC 交互 必须提供一个任意 id，哪怕 null 也可以，否则返回为空
+# 使用 Ethereum JSON-RPC 交互 必须提供一个任意 id，哪怕 null 也可以，否则返回为空。
 curl http://localhost:6739 --data '{"method": "admin_nodeInfo","id":1}' -X POST -H "Content-Type: application/json"
 curl http://localhost:6739 --data '{"method": "eth_accounts","id":1}' -X POST -H "Content-Type: application/json"
 curl http://localhost:6739 --data '{"method": "eth_blockNumber","id":1}' -X POST -H "Content-Type: application/json"

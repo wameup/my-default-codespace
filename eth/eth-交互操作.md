@@ -4,6 +4,8 @@
 
 ## command line
 
+具有有限的一些功能，例如创建新账户。
+
 - `geth -h`
 - <https://geth.ethereum.org/docs/interface/command-line-options>
 

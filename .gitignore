@@ -1,4 +1,4 @@
 node_modules/
-eth/pex-data-pow/geth/
-eth/pex-data-poa/geth/
+eth/pex-pow/geth/
+eth/pex-poa/geth/
 eth/bin/

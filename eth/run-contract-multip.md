@@ -1,15 +1,17 @@
-# <https://zhuanlan.zhihu.com/p/497532168> <https://blog.csdn.net/weixin_44029550/article/details/110200472>
-# 编译：
-#  - 用命令行编译器 solc
-#  - go to https://remix.ethereum.org, compile contract, click "Compilation Details", copy BYTECODE.object and ABI, prefix bytecode with '0x'
-#  - 用 npx hardhat compile
-# 部署合约：
-#  - 用 JavaScript console
-#  - 用 JSON-RPC eth_sendTransaction 参见 <https://ethereum.org/en/developers/docs/apis/json-rpc/#deploying-contract>
-#  - 用 hardhat
-# 调用：
-#  - 用 JavaScript console
-#  - 用 JSON-RPC eth_call 调用
+<https://zhuanlan.zhihu.com/p/497532168> 
+<https://blog.csdn.net/weixin_44029550/article/details/110200472>
+
+- 编译：
+  - 用命令行编译器 solc
+  - go to https://remix.ethereum.org, compile contract, click "Compilation Details", copy BYTECODE.object and ABI, prefix bytecode with '0x'
+  - 用 npx hardhat compile
+- 部署合约：
+  - 用 JavaScript console
+  - 用 JSON-RPC eth_sendTransaction 参见 <https://ethereum.org/en/developers/docs/apis/json-rpc/#deploying-contract>
+  - 用 hardhat
+- 调用：
+  - 用 JavaScript console
+  - 用 JSON-RPC eth_call/sendTransaction 调用
 
 bytecodeMultip = "0x608060405234801561001057600080fd5b5060bb8061001f6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063c6888fa1146044575b600080fd5b348015604f57600080fd5b50606c600480360381019080803590602001909291905050506082565b6040518082815260200191505060405180910390f35b60006007820290509190505600a165627a7a723058209135a65fdddd7be677810243db99bc4cbe46fcf74ee4ce1a3a8cc7fdbab004ef0029"
 web3.eth.estimateGas({data: bytecodeMultip})
@@ -51,6 +53,8 @@ contractMultip
 */
 
 contractMultip.multiply(62, {from:eth.coinbase})
+
+---
 
 # 通过 eth_call + 函数签名 调用智能合约的函数
 

@@ -1,13 +1,11 @@
 #!/bin/bash
 
-## https://github.com/wameup/FabricLearn
-
 ## Add dev container configuration, set to go + node + docker-in-docker, comment out `"remoteUser": "vscode"` in .devcontainer/devcontainer.json
 
 ## apt update && apt install curl golang jq -y
 
 # fabric not compatible with arm because there is no hyperledger-fabric-linux-aarch64-2.4.4.tar.gz
-# bootstrap.sh is equal to `curl -sSL https://bit.ly/2ysbOFE | bash -s`
+# bootstrap.sh is equal to `curl -sSL https://bit.ly/2ysbOFE | bash -s -- fabric版本 ca版本`
 # bootstrap.sh 在国内主机上下载很艰难。不管失败与否，都需要按以下流程重新做一遍：
 echo "=== 使用官方初始化脚本 bootstrap.sh ? y for yes, anything else for no"
 read -p ">>> " UseBootstrap

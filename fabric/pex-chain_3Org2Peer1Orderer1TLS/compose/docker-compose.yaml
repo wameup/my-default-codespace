@@ -1,0 +1,105 @@
+version: "2"
+
+networks:
+  network:
+
+services:
+  council.pex-chain.bittic.cn:
+    container_name: council.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: ca-base
+    command: sh -c 'fabric-ca-server start -d -b ca-admin:ca-adminpw --port 7050'
+    environment:
+      - FABRIC_CA_SERVER_CSR_CN=council.pex-chain.bittic.cn
+      - FABRIC_CA_SERVER_CSR_HOSTS=council.pex-chain.bittic.cn
+    volumes:
+      - ${LOCAL_CA_PATH}/council.pex-chain.bittic.cn/ca:${DOCKER_CA_PATH}/ca
+    ports:
+      - 7050:7050
+
+  orderer.pex-chain.bittic.cn:
+    container_name: orderer.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: ca-base
+    command: sh -c 'fabric-ca-server start -d -b ca-admin:ca-adminpw --port 7050'
+    environment:
+      - FABRIC_CA_SERVER_CSR_CN=orderer.pex-chain.bittic.cn
+      - FABRIC_CA_SERVER_CSR_HOSTS=orderer.pex-chain.bittic.cn
+    volumes:
+      - ${LOCAL_CA_PATH}/orderer.pex-chain.bittic.cn/ca:${DOCKER_CA_PATH}/ca
+    ports:
+      - 7150:7050
+
+  soft.pex-chain.bittic.cn:
+    container_name: soft.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: ca-base
+    command: sh -c 'fabric-ca-server start -d -b ca-admin:ca-adminpw --port 7050'
+    environment:
+      - FABRIC_CA_SERVER_CSR_CN=soft.pex-chain.bittic.cn
+      - FABRIC_CA_SERVER_CSR_HOSTS=soft.pex-chain.bittic.cn
+    volumes:
+      - ${LOCAL_CA_PATH}/soft.pex-chain.bittic.cn/ca:${DOCKER_CA_PATH}/ca
+    ports:
+      - 7250:7050
+
+  web.pex-chain.bittic.cn:
+    container_name: web.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: ca-base
+    command: sh -c 'fabric-ca-server start -d -b ca-admin:ca-adminpw --port 7050'
+    environment:
+      - FABRIC_CA_SERVER_CSR_CN=web.pex-chain.bittic.cn
+      - FABRIC_CA_SERVER_CSR_HOSTS=web.pex-chain.bittic.cn
+    volumes:
+      - ${LOCAL_CA_PATH}/web.pex-chain.bittic.cn/ca:${DOCKER_CA_PATH}/ca
+    ports:
+      - 7350:7050
+
+  peer1.soft.pex-chain.bittic.cn:
+    container_name: peer1.soft.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.soft.pex-chain.bittic.cn
+      - CORE_PEER_ADDRESS=peer1.soft.pex-chain.bittic.cn:7051
+      - CORE_PEER_LOCALMSPID=softMSP
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.soft.pex-chain.bittic.cn:7051
+    volumes:
+      - ${LOCAL_CA_PATH}/soft.pex-chain.bittic.cn/registers/peer1:${DOCKER_CA_PATH}/peer
+    ports:
+      - 7251:7051
+
+  peer1.web.pex-chain.bittic.cn:
+    container_name: peer1.web.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.web.pex-chain.bittic.cn
+      - CORE_PEER_ADDRESS=peer1.web.pex-chain.bittic.cn:7051
+      - CORE_PEER_LOCALMSPID=webMSP
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.web.pex-chain.bittic.cn:7051
+    volumes:
+      - ${LOCAL_CA_PATH}/web.pex-chain.bittic.cn/registers/peer1:${DOCKER_CA_PATH}/peer
+    ports:
+      - 7351:7051
+
+  orderer1.orderer.pex-chain.bittic.cn:
+    container_name: orderer1.orderer.pex-chain.bittic.cn
+    extends:
+      file: docker-base.yaml
+      service: orderer-base
+    environment:
+      - ORDERER_HOST=orderer1.orderer.pex-chain.bittic.cn
+      - ORDERER_GENERAL_LOCALMSPID=ordererMSP
+    volumes:
+      - ${LOCAL_CA_PATH}/orderer.pex-chain.bittic.cn/registers/orderer1:${DOCKER_CA_PATH}/orderer
+      - ${LOCAL_ROOT_PATH}/data/genesis.block:${DOCKER_CA_PATH}/orderer/genesis.block
+    ports:
+      - 7151:7777

@@ -51,3 +51,10 @@ eth.blockNumber
 miner.stop()
 miner.start(1)
 eth.blockNumber
+miner.start(1)
+eth.coinbase
+eth.blockNumber
+miner.stop()
+miner.start(1)
+eth.blockNumber
+.exit

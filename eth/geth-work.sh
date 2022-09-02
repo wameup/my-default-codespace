@@ -29,7 +29,7 @@ curl http://localhost:6739 --data '{"method": "eth_blockNumber","id":1}' -X POST
 curl http://localhost:6739 -d '{"method":"eth_getBlockByNumber","params":["0x0",true],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 # 根据上一步获得的 block hash
 curl http://localhost:6739 -d '{"method":"eth_getBlockByHash","params":["0xe704143d3cc1aedeaa20cda2cb2e543300787f5e5ae9e7ac95655ec777ea65b7",true],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
-curl http://localhost:6739 -d '{"method":"eth_getBalance","params":["0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
+curl http://localhost:6739 -d '{"method":"eth_getBalance","params":["0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","latest"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 ## value: parseInt(web3.toWei(1,'ether')).toString(16) => 'de0b6b3a7640000'
 curl http://localhost:6739 -d '{"method":"eth_sendTransaction","params":[{"from":"0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","to":"0x921b248a470f7d0bba40077c7aee3ab3440caa77","value":"0xde0b6b3a7640000","gas":"0x5208"}],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 ## value: web3.toWei(0.1, 'ether') => 100000000000000000, parseInt(100000000000000000).toString(16) => '16345785d8a0000'
@@ -37,6 +37,9 @@ curl http://localhost:6739 -d '{"method":"eth_sendTransaction","params":[{"from"
 curl http://localhost:6739 -d '{"method":"eth_sendTransaction","params":[{"from":"0x921b248a470f7d0bba40077c7aee3ab3440caa77","to":"0x3831e121b349aebaea8ed0c44d4c7cb7b15ad8ad","value":"0x16345785d8a0000","gas":"0x5208"}],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
 # 根据上一步获得的 tx hash
 curl http://localhost:6739 -d '{"method":"eth_getTransactionByHash","params":["0xe80e7f1d78ad00d2e9bf6779cebb3105c2b4f119cb6abe63419fda995c9c082e"],"jsonrpc":"2.0","id":1}' -X POST -H "Content-Type: application/json"
+
+# 或者用浏览器 console 调用RPC
+> let [error, response] = await uni.request({method:'POST', url:'http://121.5.167.48:6739', data:{"method": "eth_blockNumber","id":1}, header:{'Content-Type':'application/json'}}); console.log(response)
 
 # 解析私钥
 # https://blog.csdn.net/northeastsqure/article/details/79476831

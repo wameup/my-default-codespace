@@ -4,6 +4,7 @@
 
 ## 资源
 
-fabric 官方文档 https://hyperledger-fabric.readthedocs.io/
-fabric 代码仓库 https://github.com/hyperledger/fabric
-最完整的学习模板 https://github.com/wefantasy/FabricLearn
+- fabric 官方文档 https://hyperledger-fabric.readthedocs.io/
+- fabric 代码仓库 https://github.com/hyperledger/fabric
+- 最完整的学习模板 https://github.com/wefantasy/FabricLearn
+  - forked to https://github.com/wameup/FaricLearn
